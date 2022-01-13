@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TourismService {
@@ -18,5 +19,14 @@ public class TourismService {
 
     public List<Tourism> getTourism(){
        return tourismRepository.findAll();
+    }
+
+    public void addNewTourism(Tourism tourism) {
+        Optional<Tourism> tourismByEmail = tourismRepository
+                .findTourismByEmail(tourism.getEmail());
+        if(tourismByEmail.isPresent()){
+            throw new IllegalStateException("email taken");
+        }
+       tourismRepository.save(tourism);
     }
 }
