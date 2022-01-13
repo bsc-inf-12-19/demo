@@ -22,8 +22,14 @@ public class TourismController {
     }
 
     @PostMapping
-    public void registerNewTourism(@RequestBody    Tourism tourism){
+    public void registerNewTourism(@RequestBody    Tourism tourism) {
        tourismService.addNewTourism(tourism);
+    }
+
+    @DeleteMapping(path = "{tourismId}")
+    public void deleteTourism(
+            @PathVariable("tourismId") Long tourismId){
+        tourismService.deleteTourism(tourismId);
     }
 }
 

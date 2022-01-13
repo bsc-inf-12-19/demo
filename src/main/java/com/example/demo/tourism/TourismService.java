@@ -29,4 +29,13 @@ public class TourismService {
         }
        tourismRepository.save(tourism);
     }
+
+    public void deleteTourism(Long tourismId) {
+       boolean exists = tourismRepository.existsById(tourismId);
+       if(!exists){
+           throw new IllegalStateException(
+                   "tourism with id " + tourismId + " does not exists");
+       }
+       tourismRepository.deleteById(tourismId);
+    }
 }
