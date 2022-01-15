@@ -8,12 +8,15 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class TourismConfig {
+public class TourismConfig
+        {
 
     @Bean
     CommandLineRunner commandLineRunner(
-            TourismRepository repository){
-        return args -> {
+            TourismRepository repository)
+        {
+        return args ->
+        {
             Tourism david = new Tourism(
                     "david@gmail.com",
                     "david"
@@ -26,5 +29,5 @@ public class TourismConfig {
                     List.of(david, king)
             );
         };
-    }
-}
+        }
+        }

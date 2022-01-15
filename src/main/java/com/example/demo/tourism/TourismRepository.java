@@ -8,7 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface TourismRepository
-        extends JpaRepository<Tourism, Long> {
+        extends JpaRepository<Tourism, Long>
+{
 
     @Query("SELECT s FROM Tourism s WHERE s.email = ?1")
     Optional<Tourism>findTourismByEmail(String email);

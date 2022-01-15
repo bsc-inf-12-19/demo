@@ -5,7 +5,8 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Tourism {
+public class Tourism
+{
     @Id
     @SequenceGenerator(
             name = "tourism_sequence",
@@ -20,32 +21,38 @@ public class Tourism {
     private String email;
     private String name;
 
-    public Tourism() {
+    public Tourism()
+    {
     }
 
     public Tourism(Long id,
                    String email,
-                   String name) {
+                   String name)
+    {
         this.id = id;
         this.email = email;
         this.name = name;
     }
 
     public Tourism(String email,
-                   String name) {
+                   String name)
+    {
         this.email = email;
         this.name = name;
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
@@ -53,15 +60,18 @@ public class Tourism {
         this.email = email;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String toString(){
+    public String toString()
+    {
         return "Tourism{" +
                 "id=" +id +
                 ", email='" + email + '\'' +

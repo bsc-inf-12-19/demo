@@ -12,24 +12,31 @@ public class TourismController {
     private final TourismService tourismService;
 
     @Autowired
-    public TourismController(TourismService tourismService) {
+    public TourismController(TourismService tourismService)
+    {
         this.tourismService = tourismService;
     }
 
     @GetMapping
-    public List<Tourism> getTourism(){
+    //list of tourism
+    public List<Tourism> getTourism()
+    {
         return tourismService.getTourism();
     }
 
     @PostMapping
-    public void registerNewTourism(@RequestBody    Tourism tourism) {
+    public void registerNewTourism(
+            @RequestBody    Tourism tourism)
+    {
        tourismService.addNewTourism(tourism);
     }
 
     @DeleteMapping(path = "{tourismId}")
     public void deleteTourism(
-            @PathVariable("tourismId") Long tourismId){
+            //delete tourism from specified path
+            @PathVariable("tourismId") Long tourismId)
+    {
         tourismService.deleteTourism(tourismId);
     }
-}
+    }
 

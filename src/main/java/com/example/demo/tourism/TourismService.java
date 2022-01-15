@@ -8,34 +8,41 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TourismService {
+public class TourismService
+        {
 
     private final TourismRepository tourismRepository;
 
     @Autowired
-    public TourismService(TourismRepository tourismRepository) {
+    public TourismService(TourismRepository tourismRepository)
+        {
         this.tourismRepository = tourismRepository;
-    }
+        }
 
-    public List<Tourism> getTourism(){
+    public List<Tourism> getTourism()
+        {
        return tourismRepository.findAll();
-    }
+        }
 
-    public void addNewTourism(Tourism tourism) {
+    public void addNewTourism(Tourism tourism)
+        {
         Optional<Tourism> tourismByEmail = tourismRepository
                 .findTourismByEmail(tourism.getEmail());
-        if(tourismByEmail.isPresent()){
+        if(tourismByEmail.isPresent())
+        {
             throw new IllegalStateException("email taken");
         }
        tourismRepository.save(tourism);
-    }
+        }
 
-    public void deleteTourism(Long tourismId) {
+    public void deleteTourism(Long tourismId)
+        {
        boolean exists = tourismRepository.existsById(tourismId);
-       if(!exists){
+       if(!exists)
+        {
            throw new IllegalStateException(
                    "tourism with id " + tourismId + " does not exists");
-       }
+        }
        tourismRepository.deleteById(tourismId);
-    }
-}
+        }
+        }
