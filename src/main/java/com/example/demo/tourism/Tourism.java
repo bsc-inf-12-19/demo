@@ -18,7 +18,7 @@ public class Tourism
             generator = "tourism_sequence"
     )
     private Long id;
-    //these are requirement to register/ login to tourism website no password needed
+    //these are requirements for feedback and registration
     private String email;
     private String name;
 
