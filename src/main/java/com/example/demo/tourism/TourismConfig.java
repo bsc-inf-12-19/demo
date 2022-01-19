@@ -25,9 +25,7 @@ public class TourismConfig
                     "king@gmail.com",
                     "king"
             );
-            repository.saveAll(
-                    List.of(david, king)
-            );
+            repository.toString();
         };
         }
         }
